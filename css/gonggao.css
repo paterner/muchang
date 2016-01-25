@@ -26,6 +26,19 @@ body.gonggao {
   border-color: #37be9d;
   color: #37be9d;
 }
+.gonggao nav li i.new {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 0.75rem;
+  line-height: 0.75rem;
+  text-align: center;
+  color: #fff;
+  background-color: #f64642;
+  position: absolute;
+  right: -0.75rem;
+  top: -0.375rem;
+  font-size: 0.625rem;
+}
 .gonggao .gonggao-tab {
   text-align: center;
   height: 2.4375rem;
@@ -66,3 +79,61 @@ body.gonggao {
   font-weight: 200;
 }
 
+.gonggao .gonggao-list ul li{
+  background: #fff;
+  margin-top: 0.625rem;
+}
+
+.gonggao .gonggao-list ul li .gonggao-list-wrapper{
+  padding: 1.25rem 1.25rem 0;
+}
+.gonggao .head {
+  width: 2.125rem;
+  height: 2.125rem;
+  border-radius: 2.125rem;
+}
+
+.gonggao .head_title {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 0.75rem;
+  background-color: rgba(225,225,225,0.5);
+  color: #444;
+  font-size: 0.625rem;
+  line-height: 0.75rem;
+  position: absolute;
+  bottom: 0;
+  right: 0.725rem;
+}
+.gonggao .gonggao-message h3{
+  color: #37be9d;
+  font-size: 0.875rem;
+}
+
+.gonggao-button button{
+  width: 50%;
+  color: #999;
+  font-size: 0.75rem;
+  text-align: center;
+  border: 0px;
+  float: left;
+  height: 2.2rem;
+  line-height: 2.2rem;
+  background: #fff;
+  border-top: 1px solid #999 
+}
+
+.gonggao-button button.confirm{
+  color: #fff;
+  background-color: #37be9d;
+}
+
+.gonggao-button button.confirm i{
+  width: 0.375rem;
+  height: 0.375rem;
+  position: absolute;
+  top: 0;
+  right: -0.375rem;
+  background-color: #f64642;
+  border-radius: 0.375rem;
+}

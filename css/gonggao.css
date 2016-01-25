@@ -1,0 +1,68 @@
+body.gonggao {
+  background-color: #f3f3f3;
+  font-family: 'microsoft yahei' arial;
+}
+.gonggao header {
+  background-color: #ebebeb;
+  font-size: 1.0625rem;
+  color: #444;
+  text-indent: .9375rem;
+  height: 2.4375rem;
+  line-height: 2.4375rem;
+  border-bottom: 1px solid #d7d7d7;
+}
+.gonggao nav li {
+  width: 25%;
+  height: 2.3125rem;
+  line-height: 2.3125rem;
+  background-color: #ebebeb;
+  float: left;
+  border-bottom: 3px solid #ebebeb;
+  color: #444;
+  font-size: .9275rem;
+  text-align: center;
+}
+.gonggao nav li.current {
+  border-color: #37be9d;
+  color: #37be9d;
+}
+.gonggao .gonggao-tab {
+  text-align: center;
+  height: 2.4375rem;
+}
+.gonggao .gonggao-tab-box {
+  display: inline-block;
+  width: 51.4%;
+  margin: .4375rem 0;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  overflow: hidden;
+}
+.gonggao .gonggao-tab-box span {
+  display: block;
+  float: left;
+  width: 50%;
+  height: 1.5625rem;
+  line-height: 1.5625rem;
+  font-size: .875rem;
+  color: #444;
+  background-color: #fff;
+}
+.gonggao .gonggao-tab-box span.current {
+  background-color: #37be9d;
+  color: #fff;
+}
+.gonggao .gonggao-title {
+  height: 4.6875rem;
+  line-height: 4.6875rem;
+  background-color: #fff;
+  font-size: .9275rem;
+  color: #444;
+  text-align: center;
+}
+.gonggao .gonggao-title strong {
+  color: #37be9d;
+  font-size: 1.5625rem;
+  font-weight: 200;
+}
+

@@ -96,8 +96,8 @@ body.gonggao, body.biaoqian, body.biji {
   color: #222;
   text-indent: .625rem;
 }
-.gonggao-count .f11,
-.gonggao-note .f11 {
+.gonggao-count .font11,
+.gonggao-note .font11 {
   float: left;
   display: inline-block;
   height: 1rem;
@@ -145,7 +145,7 @@ body.gonggao, body.biaoqian, body.biji {
   font-size: .9275rem;
   color: #222;
 }
-.gonggao-note .f11 {
+.gonggao-note .font11 {
   line-height: 2.5rem;
 }
 .gonggao .gonggao-note-icon {
@@ -162,12 +162,12 @@ body.gonggao, body.biaoqian, body.biji {
 .gonggao .gonggao-note-list {
   padding-left: 1rem;
 }
-.gonggao .gonggao-note-list li{
+.gonggao .gonggao-note-list .gonggao-note-item{
   border-left: 1px solid #37be9d;
   position: relative;
   padding: 1rem 0;
 }
-.gonggao .gonggao-note-list li:after{
+.gonggao .gonggao-note-list .gonggao-note-item:after{
   content: '';
   position: absolute;
   top: 1rem;
@@ -180,13 +180,44 @@ body.gonggao, body.biaoqian, body.biji {
   -webkit-border-radius: 50%;
   border: 3px solid #95d8c8;
 }
+.gonggao-note-list .note-list-date {
+  position: absolute;
+}
+.gonggao-note-list .note-list-day {
+  color: #222;
+  font-size: .9375rem;
+  margin-left: 1rem;
+}
+.gonggao-note-list .note-list-month {
+  color: #999;
+  font-size: .625rem;
+  margin-left: -.1875rem;
+}
+.gonggao-note-list .gonggao-list {
+  margin-left: 22.2%;
+  margin-top: -.3125rem;
+}
+.gonggao-list .gonggao-list-tags {
+  font-size: .6875rem;
+  color: #444;
+  margin-bottom: .3125rem;
+}
 .gonggao .gonggao-list ul li{
-  background: #fff;
   margin-top: 0.625rem;
 }
 
 .gonggao .gonggao-list ul li .gonggao-list-wrapper{
-  padding: 1.25rem 1.25rem 0;
+  padding: 1rem .625rem;
+  background: #fff;
+  position: relative;
+}
+.gonggao-list-wrapper .list-left {
+  position: absolute;
+  top: 1rem;
+  left: .625rem;
+}
+.gonggao-list-wrapper .gonggao-message {
+  margin-left: 2.6875rem;
 }
 .gonggao .head {
   width: 2.125rem;
@@ -210,7 +241,12 @@ body.gonggao, body.biaoqian, body.biji {
   color: #37be9d;
   font-size: 0.875rem;
 }
-
+.gonggao-message .gonggao-message-context {
+  margin-top: .3125rem;
+}
+.gonggao-note-list .gonggao-button button {
+  font-size: .625rem;
+}
 .gonggao-button button{
   width: 50%;
   color: #999;
@@ -221,9 +257,11 @@ body.gonggao, body.biaoqian, body.biji {
   height: 2.2rem;
   line-height: 2.2rem;
   background: #fff;
-  border-top: 1px solid #999 
+  border-top: 1px solid #f9f9f9;
 }
-
+.gonggao-button button:first-child {
+  border-right: 1px solid #f9f9f9;
+}
 .gonggao-button button.confirm{
   color: #fff;
   background-color: #37be9d;

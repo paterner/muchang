@@ -19,6 +19,7 @@ input:focus{border:0;outline:medium}
 .fl{float: left;}
 .fr{float: right;}
 .pr{position: relative;}
+.f10{font-size: 0.625rem}
 .f11{font-size: 0.6875rem}
 .f12{font-size: 0.75rem}
 .f14{font-size: 0.875rem}

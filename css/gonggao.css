@@ -1,4 +1,4 @@
-body.gonggao, body.biaoqian {
+body.gonggao, body.biaoqian, body.biji {
   background-color: #f3f3f3;
   font-family: 'microsoft yahei' arial;
 }
@@ -149,7 +149,7 @@ body.gonggao, body.biaoqian {
 }
 .biaoqian .biaoqian_title i{
   background: url('../img/icon.png') no-repeat 0 0;
-  background-size: 1.25rem 6.25rem;
+  background-size: 1.825rem 6.25rem;
   display: block;
   float: left;
   margin-top: 0.875rem;
@@ -206,4 +206,26 @@ body.gonggao, body.biaoqian {
   text-align: center;;
   background-color: #e8efed;
   font-size: 0.875rem;
+}
+
+/*notes*/
+.note_number{
+  height: 2.625rem;
+  line-height: 2.625rem;
+  text-align: center;
+  color:#fff;
+  font-size: 0.825rem;
+  background-color: #95d8c8; 
+}
+
+.biaoqian_note .note_content span{
+  color: #999;
+  font-size: 0.75rem;
+}
+
+.biaoqian_note .note_content div{
+  color: #222;
+  font-size: 0.75rem;
+  padding: 0.625rem;
+  background-color: #e8efed
 }

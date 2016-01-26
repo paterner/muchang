@@ -23,9 +23,14 @@ input:focus{border:0;outline:medium}
 .f11{font-size: 0.6875rem}
 .f12{font-size: 0.75rem}
 .f14{font-size: 0.875rem}
+.f16{font-size: 1rem}
 .c_999{color: #999}
+.c_444{color: #444}
 .mt10{margin-top: 0.625rem}
+.mt110{margin-top: 6.875rem}
+.mt64{margin-top: 4rem}
 .mr10{margin-right: 0.625rem}
 .mt32{margin-top: 2rem;}
 .m10{margin: 0.625rem;}
 .p15{padding: 0.9375rem}
+.tc{text-align: center;}

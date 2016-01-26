@@ -66,3 +66,109 @@ body.gonggao {
   font-weight: 200;
 }
 
+/**
+sunchi
+**/
+
+.gonggao .gonggao-count {
+  margin-top: .625rem;
+  background-color: #fff;
+  padding: .5rem 0 0;
+}
+.gonggao-count .gonggao-count-box {
+  padding: 0 1rem;
+}
+.gonggao-count .gonggao-count-title {
+  float: left;
+  display: inline-block;
+  height: 1rem;
+  line-height: 1.1rem;
+  border-left: 4px solid #37be9d;
+  font-size: .9275rem;
+  color: #222;
+  text-indent: .625rem;
+}
+.gonggao-count .f11,
+.gonggao-note .f11 {
+  float: left;
+  display: inline-block;
+  height: 1rem;
+  line-height: 1.3rem;
+  font-size: .6875rem;
+}
+.gonggao .gonggao-count-intro {
+  font-size: .75rem;
+  display: inline-block;
+  height: 1rem;
+  line-height: 1.3rem;
+  color: #444;
+  float: right;
+}
+.gonggao .gonggao-count-chart {
+  width: 100%;
+  height: 11.25rem;
+  background-color: #efefef;
+  margin-top: .5rem;
+}
+.gonggao .gonggao-count-refer {
+  margin-top: .625rem;
+  padding: .625rem 1rem;
+  color: #999;
+  font-size: .6875rem;
+  border-top: 1px solid #e2e2e2;
+}
+.gonggao .gonggao-count-refer .c_222{
+  color: #222;
+}
+.gonggao .gonggao-note {
+  margin-top: .625rem;
+}
+.gonggao-note h2{
+  height: 2.1875rem;
+  line-height: 2.1875rem;
+  background-color: #fff;
+  padding: 0 1rem;
+  position: relative;
+}
+.gonggao-note .gonggao-note-title {
+  float: left;
+  display: inline-block;
+  height: 1rem;
+  font-size: .9275rem;
+  color: #222;
+}
+.gonggao-note .f11 {
+  line-height: 2.5rem;
+}
+.gonggao .gonggao-note-icon {
+  display: block;
+  width: 1.0625rem;
+  height: 1.125rem;
+  position: absolute;
+  right: 1rem;
+  top: .5rem;
+  background: url(../images/gonggao_icon.png) 0 0 no-repeat;
+  background-size: 3.125rem 12.5rem;
+  -webkit-background-size: 3.125rem 12.5rem;
+}
+.gonggao .gonggao-note-list {
+  padding-left: 1rem;
+}
+.gonggao .gonggao-note-list li{
+  border-left: 1px solid #37be9d;
+  position: relative;
+  padding: 1rem 0;
+}
+.gonggao .gonggao-note-list li:after{
+  content: '';
+  position: absolute;
+  top: 1rem;
+  left: -.375rem;
+  display: block;
+  width: .375rem;
+  height: .375rem;
+  background-color: #37be9d;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border: 3px solid #95d8c8;
+}

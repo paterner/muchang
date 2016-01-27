@@ -220,16 +220,19 @@ body.reply {
   top: 1rem;
   left: .625rem;
 }
-.gonggao-list-wrapper .gonggao-message {
+.gonggao-list-wrapper .gonggao-message,
+.reply-list-wrapper .reply-message {
   margin-left: 2.6875rem;
 }
-.gonggao .head {
+.gonggao .head,
+.reply .head {
   width: 2.125rem;
   height: 2.125rem;
   border-radius: 2.125rem;
 }
 
-.gonggao .head_title {
+.gonggao .head_title,
+.reply .head_title {
   width: 0.75rem;
   height: 0.75rem;
   border-radius: 0.75rem;
@@ -241,7 +244,8 @@ body.reply {
   bottom: 0;
   right: 0.725rem;
 }
-.gonggao .gonggao-message h3{
+.gonggao .gonggao-message h3,
+.reply .reply-message h3{
   color: #37be9d;
   font-size: 0.875rem;
 }
@@ -328,7 +332,8 @@ body.reply {
 }
 .gonggao .add_gonggao .add_gonggao_close{
   background: url('../img/icon.png') no-repeat 0 -149px;
-  background-size: 1.5625rem 31.25rem;
+  background-size: 1.875rem 31.25rem;
+  -webkit-background-size: 1.875rem 31.25rem;
   width: 1.125rem;
   height: 1.125rem;
   position:absolute;
@@ -350,7 +355,8 @@ body.reply {
   font-size: 0.875rem;
   margin: 1rem 0;
   background: url('../img/icon.png') no-repeat 0 0;
-  background-size: 1.5625rem 31.25rem;
+  background-size: 1.875rem 31.25rem;
+  -webkit-background-size: 1.875rem 31.25rem;
 }
 
 .gonggao .add_gonggao input.add_gonggao_text {
@@ -382,8 +388,8 @@ body.reply {
 }
 .biaoqian .biaoqian_title i.back{
   background: url('../img/icon.png') no-repeat 1rem 1rem;
-  background-size: 1.5625rem 31.25rem;
-  -webkit-background-size: 1.5625rem 31.25rem;
+  background-size: 1.875rem 31.25rem;
+  -webkit-background-size: 1.875rem 31.25rem;
   display: block;
   float: left;
   width: 3.125rem;
@@ -466,7 +472,8 @@ body.reply {
 
 .biaoqian.biaoqian_note i.edit{
     background: url('../img/icon.png') no-repeat 0 -33px;
-    background-size: 1.5625rem 31.25rem;
+    background-size: 1.875rem 31.25rem;
+    -webkit-background-size: 1.875rem 31.25rem;
     display: block;
     float: right;
     margin-top: 0.4125rem;
@@ -494,4 +501,59 @@ body.reply {
   padding: 0.625rem 1rem;
   background-color: #e8efed;
   margin-top: .3125rem;
+}
+.reply .reply-list {
+  margin-top: .625rem;
+}
+.reply-list .reply-list-wrapper {
+  padding: .625rem 1rem 1.25rem;
+  background: #fff;
+  border-bottom: 1px solid #d7d7d7;
+  position: relative;
+}
+.reply-list-wrapper .list-left {
+  position: absolute;
+  top: .625rem;
+  left: 1rem;
+}
+.reply .head {
+  width: 2.125rem;
+  height: 2.125rem;
+  border-radius: 2.125rem;
+}
+.reply-list .reply-message-context {
+  margin-top: .9375rem;
+}
+.reply .reply-bottom {
+  height: 2.8125rem;
+  width: 100%;
+  border-top: 1px solid #e7e7e7;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #e8efed;
+}
+.reply .reply-bottom input {
+  font-size: .875rem;
+  display: block;
+  position: absolute;
+  left: 1.5rem;
+  bottom: .3125rem;
+  width: 76%;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  border: 0;
+  border-bottom: 1px solid #e7e7e7;
+  background-color: #e8efed;
+}
+.reply .reply-bottom i {
+  display: block;
+  width: 1.6875rem;
+  height: 1.25rem;
+  position: absolute;
+  right: 1.6875rem;
+  top: .8125rem;
+  background: url('../img/icon.png') no-repeat 0 -213px;
+  background-size: 1.875rem 31.25rem;
+  -webkit-background-size: 1.875rem 31.25rem;
 }

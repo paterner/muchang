@@ -1,14 +1,17 @@
-body.gonggao, body.biaoqian, body.biji {
+body.gonggao, 
+body.biaoqian,
+body.biji,
+body.reply {
   background-color: #f3f3f3;
-  font-family: 'microsoft yahei' arial;
+  font-family: 'microsoft yahei';
 }
 .gonggao header {
   background-color: #ebebeb;
   font-size: 1.0625rem;
   color: #444;
   text-indent: .9375rem;
-  height: 2.4375rem;
-  line-height: 2.4375rem;
+  height: 3.125rem;
+  line-height: 3.125rem;
   border-bottom: 1px solid #d7d7d7;
 }
 .gonggao nav li {
@@ -38,6 +41,7 @@ body.gonggao, body.biaoqian, body.biji {
   right: -0.75rem;
   top: -0.375rem;
   font-size: 0.625rem;
+  font-style: normal;
 }
 .gonggao .gonggao-tab {
   text-align: center;
@@ -68,7 +72,7 @@ body.gonggao, body.biaoqian, body.biji {
 .gonggao .gonggao-title {
   height: 4.6875rem;
   line-height: 4.6875rem;
-  background-color: #fff;
+  background-color: #e2e2e2;
   font-size: .9275rem;
   color: #444;
   text-align: center;
@@ -279,7 +283,7 @@ body.gonggao, body.biaoqian, body.biji {
 
 .gonggao .add_gonggao_btn{
   position: fixed;
-  right: 0;
+  right: 1rem;
   bottom: 3rem;
   width: 3.375rem;
   height: 3.375rem;
@@ -299,10 +303,28 @@ body.gonggao, body.biaoqian, body.biji {
 }
 .gonggao .add_gonggao{
   background: #fff;
-  margin: 2rem 0.625rem 0;
+  margin: 4.25rem 0.625rem 0;
   height: 100%;
-  padding: 1rem;
   position: relative;
+}
+.add_gonggao .add_gonggao_title {
+  padding: 1rem;
+}
+.add_gonggao .add_gonggao_bottom {
+  border-top: 1px solid #e2e2e2;
+  width: 100%;
+  padding: 1rem;
+  height: 3rem;
+  color: #999;
+  font-size: .75rem;
+  position: absolute;
+  bottom: 5rem;
+  left: 0;
+}
+.add_gonggao .add_gonggao_bottom h4 {
+  font-size: .875rem;
+  color: #999;
+  margin-bottom: .625rem;
 }
 .gonggao .add_gonggao .add_gonggao_close{
   background: url('../img/icon.png') no-repeat 0 -149px;
@@ -310,17 +332,17 @@ body.gonggao, body.biaoqian, body.biji {
   width: 1.125rem;
   height: 1.125rem;
   position:absolute;
-  margin: 0.625rem; 
+  margin: 0.3125rem; 
   right: 0;
   top: 0;
 }
 .gonggao .add_gonggao input{
   display: block;
   border:0px;
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid #e2e2e2;
   width: 100%;
-  height: 2.5rem;
-  line-height: 2.5rem;
+  height: 1.8rem;
+  line-height: 1.8rem;
   padding-left: 1.5rem;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -332,11 +354,11 @@ body.gonggao, body.biaoqian, body.biji {
 }
 
 .gonggao .add_gonggao input.add_gonggao_text {
-  background-position: 0 -69px
+  background-position: 0 -79px
 }
 
 .gonggao .add_gonggao input.add_gonggao_keyword {
-  background-position: 0 -106px
+  background-position: 0 -113px
 }
 .gonggao .add_gonggao .add_gonggao_submit {
   height: 2.7rem;
@@ -346,7 +368,7 @@ body.gonggao, body.biaoqian, body.biji {
   border-radius: 5px;
   border: 0px;
   margin: 2rem 0;
-  font-size: 0.875rem;
+  font-size: 1rem;
   width: 100%;
   color: #fff;
 }
@@ -354,29 +376,31 @@ body.gonggao, body.biaoqian, body.biji {
 .biaoqian .biaoqian_title{
   height: 3rem;
   line-height: 3rem;
-  padding: 0 1rem;
-  border-bottom: 1px solid #999;
+  padding: 0 1rem 0 0;
+  border-bottom: 1px solid #d7d7d7;
+  font-size: 1.0625rem;
 }
 .biaoqian .biaoqian_title i.back{
-  background: url('../img/icon.png') no-repeat 0 0;
+  background: url('../img/icon.png') no-repeat 1rem 1rem;
   background-size: 1.5625rem 31.25rem;
+  -webkit-background-size: 1.5625rem 31.25rem;
   display: block;
   float: left;
-  margin-top: 0.875rem;
-  margin-left: 5px;
-  width:1.5rem;
-  height: 1rem;
-  margin-right: 0.3125rem;
+  width: 3.125rem;
+  height: 3rem;
 }
 
 .biaoqian .biaoqian_title button{
   float: right;
-  padding: 0.53rem 0.75rem;
+  display: block;
+  width: 3.125rem;
+  height: 1.875rem;
+  line-height: 1.875rem;
   color: #fff;
   background-color: #37be9d;
   border-radius: 5px;
   border: 0px;
-  margin-top: 0.3125rem;
+  margin-top: 0.5625rem;
   font-size: 0.875rem;
 }
 
@@ -398,28 +422,38 @@ body.gonggao, body.biaoqian, body.biji {
   float: left;
   padding: 0 0.625rem;
   height: 2.5rem;
-  color: #fff;
+  color: #aee0d2;
   line-height: 2.5rem;
   text-align: center;
   margin-left: 0.625rem;
   font-size: 0.9375rem;
 }
-
+.biaoqian .biaoqian_textarea .biaoqian_types ul li.on{
+  color: #fff;
+}
+.biaoqian .biaoqian_labels {
+  padding: 1.25rem 1rem 0;
+}
 .biaoqian .biaoqian_labels ul li {
   float: left;
-  margin-left: 0.625rem;
 }
 
-.biaoqian .biaoqian_labels ul li div.labels_outer{
-  margin: 0.625rem 0;
+.biaoqian .biaoqian_labels ul li{
+  margin-bottom: .9375rem;
+  margin-right: 4%;
+  width: 22%;
+  height: 1.875rem;
+  line-height: 1.875rem;
   border-radius: 1rem;
-  padding: 0.625rem 1.625rem;
+  -webkit-border-radius: 1rem;
   color: #444;
   text-align: center;;
   background-color: #e8efed;
   font-size: 0.875rem;
 }
-
+.biaoqian .biaoqian_labels ul li:nth-child(4n+4){
+  margin-right: 0;
+}
 /*notes*/
 .note_number{
   height: 2.625rem;
@@ -435,16 +469,18 @@ body.gonggao, body.biaoqian, body.biji {
     background-size: 1.5625rem 31.25rem;
     display: block;
     float: right;
-    margin-top: 0.3125rem;
+    margin-top: 0.4125rem;
     margin-left: 5px;
     width: 1.625rem;
     height: 2rem;
-    margin-right: 0.625rem;
+    margin-right: 0.25rem;
 }
 
 .biaoqian.biaoqian_note button{
   background: #f3f3f3;
-  color: #999;
+  color: #a5a5a5;
+  margin-right: -.9375rem;
+  font-size: .9375rem;
 }
 
 .biaoqian.biaoqian_note .note_content span{
@@ -455,6 +491,7 @@ body.gonggao, body.biaoqian, body.biji {
 .biaoqian.biaoqian_note .note_content div{
   color: #222;
   font-size: 0.75rem;
-  padding: 0.625rem;
-  background-color: #e8efed
+  padding: 0.625rem 1rem;
+  background-color: #e8efed;
+  margin-top: .3125rem;
 }

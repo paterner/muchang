@@ -11,6 +11,7 @@ body{color:#444;font:1em/1.3 Arial "微软雅黑";background-color:#fff}
 ol,ul{list-style:none;}
 a{text-decoration:none;color:#004b91}
 input:focus{border:0;outline:medium}
+textarea{resize : none;}
 .clearfix:after {clear:both;font-size:0;height:0;display:block;visibility:hidden;content:'';line-height:0}
 .hide{display:none}
 .op-lt{float:left}
@@ -23,8 +24,10 @@ input:focus{border:0;outline:medium}
 .f11{font-size: 0.6875rem}
 .f12{font-size: 0.75rem}
 .f14{font-size: 0.875rem}
+.f15{font-size: 0.9275rem}
 .f16{font-size: 1rem}
 .c_999{color: #999}
+.c_666{color: #666}
 .c_444{color: #444}
 .mt10{margin-top: 0.625rem}
 .mt110{margin-top: 6.875rem}

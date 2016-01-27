@@ -8,7 +8,8 @@
   <link rel="stylesheet" type="text/css" href="css/gonggao.css">
 </head>
 <body class="gonggao">
-  <div class="add_gonggao_wrapper">
+  <!-- 新建弹层 -->
+  <div class="add_gonggao_wrapper" style="display:none">
     <div class="add_gonggao">
       <h3 class="f14 c_444 tc">新建公告</h3>
       <i class="add_gonggao_close"></i>
@@ -33,38 +34,45 @@
       <li>我的</li>
     </ul>
   </nav>
-  <section class="gonggao-tab">
-    <div class="gonggao-tab-box clearfix">
-      <span>所有</span>
-      <span class="current">本周</span>
-    </div>
-  </section>
-  <section class="gonggao-content">
-    <div class="gonggao-title">本周<strong>12</strong>个公告</div>
-  </section>
-  <div class="gonggao-list">
-    <ul>
-      <li>
-        <div class="clearfix gonggao-list-wrapper">
-          <div class="pr fl mr10">
-            <img src="./img/head.png" alt="" class="head"> 
-            <span class="head_title">饲</span>
-          </div>
-          <div class="fl gonggao-message">
-            <div class="clearfix">
-              <h3 class="fl">王经理</h3>
-              <span class="f11 c_999 fr">12月21日</span>
+  <!-- 暂无公告 -->
+  <div class="mt64 tc" style="display:none">
+    <img src="./img/no_gonggao.png" alt="" style="display:inline" width="108" height="72">
+    <p class="mt10">暂无公告</p>
+  </div>
+  <div>
+    <section class="gonggao-tab">
+      <div class="gonggao-tab-box clearfix">
+        <span>所有</span>
+        <span class="current">本周</span>
+      </div>
+    </section>
+    <section class="gonggao-content">
+      <div class="gonggao-title">本周<strong>12</strong>个公告</div>
+    </section>
+    <div class="gonggao-list">
+      <ul>
+        <li>
+          <div class="clearfix gonggao-list-wrapper">
+            <div class="pr fl mr10">
+              <img src="./img/head.png" alt="" class="head"> 
+              <span class="head_title">饲</span>
             </div>
-            <p class="f14">今日必须完成修蹄任务，不得拖延</p>
-            <p class="f12 c_999 mt32">＃修蹄</p>
+            <div class="fl gonggao-message">
+              <div class="clearfix">
+                <h3 class="fl">王经理</h3>
+                <span class="f11 c_999 fr">12月21日</span>
+              </div>
+              <p class="f14">今日必须完成修蹄任务，不得拖延</p>
+              <p class="f12 c_999 mt32">＃修蹄</p>
+            </div>
           </div>
-        </div>
-        <div class="gonggao-button mt10 clearfix">
-          <button>没有回复</button>
-          <button class="confirm"><span class="pr">请确认 <i></i></span></button>
-        </div>
-      </li>
-    </ul>
+          <div class="gonggao-button mt10 clearfix">
+            <button>没有回复</button>
+            <button class="confirm"><span class="pr">请确认 <i></i></span></button>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
   <div class="add_gonggao_btn">+</div>
 </body>

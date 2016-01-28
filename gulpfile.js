@@ -4,27 +4,33 @@ var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var del = require('del');
 var runSequence = require('run-sequence');
+var sourcemaps = require('gulp-sourcemaps');
+var uglify = require('gulp-uglify');
 // var browserSync = require('browser-sync');
 // var reload = browserSync.reload;
 
 var gutil = require("gulp-util");
-var webpack = require("webpack");
-var webpackConfig = require("./webpack.config.js");
+//var webpack = require("webpack");
+//var webpackConfig = require("./webpack.config.js");
 
-gulp.task("webpack", function (callback) {
-    var myConfig = Object.create(webpackConfig);
-    // run webpack
-    webpack(
-        // configuration
-        myConfig
-        , function (err, stats) {
-            if (err) throw new gutil.PluginError("webpack", err);
-            gutil.log("[webpack]", stats.toString({
-                //     // output options
-            }));
-            callback();
-        });
-});
+var paths = {
+  scripts: ['src/js/*.js', 'node_modules/**/*.js'],
+};
+
+// gulp.task("webpack", function (callback) {
+//     var myConfig = Object.create(webpackConfig);
+//     // run webpack
+//     webpack(
+//         // configuration
+//         myConfig
+//         , function (err, stats) {
+//             if (err) throw new gutil.PluginError("webpack", err);
+//             gutil.log("[webpack]", stats.toString({
+//                 //     // output options
+//             }));
+//             callback();
+//         });
+// });
 
 // JavaScript 格式校验
 gulp.task('jshint', function () {
@@ -103,6 +109,16 @@ gulp.task('watch', function () {
     gulp.watch('src/js/**/*.js', ['webpack']);
 });
 
+gulp.task('scripts', function() {
+  // Minify and copy all JavaScript (except vendor scripts)
+  // with sourcemaps all the way down
+  return gulp.src(paths.scripts)
+    .pipe(sourcemaps.init())
+    .pipe(uglify())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('dist/js'));
+});
+
 // 启动预览服务，并监视 Dist 目录变化自动刷新浏览器
 // gulp.task('browser-sync', function () {
 //     browserSync.init({
@@ -112,5 +128,5 @@ gulp.task('watch', function () {
 
 // 默认任务
 gulp.task('default', function (cb) {
-    runSequence('clean', ['minifycss', 'html', 'images', 'copy', 'webpack'], 'watch', cb);
+    runSequence('clean', ['minifycss', 'html', 'images', 'copy', 'scripts'], 'watch', cb);
 });

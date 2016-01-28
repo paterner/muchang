@@ -60,19 +60,19 @@ gulp.task('copy', function () {
 
 // 图片优化
 gulp.task('images', function () {
-    return gulp.src('src/images/**/*')
+    return gulp.src('src/img/**/*')
         .pipe($.cache($.imagemin({
             progressive: true,
             interlaced: true
         })))
-        .pipe(gulp.dest('dist/images'))
+        .pipe(gulp.dest('dist/img'))
         .pipe($.size({title: 'images'}));
 });
 
 gulp.task('minifycss', function() {
-    return gulp.src('src/sass/*.scss')      //压缩的文件
-        .pipe($.sass().on('error', $.sass.logError))
-        .pipe($.autoprefixer())
+    return gulp.src('src/css/*.css')      //压缩的文件
+        // .pipe($.sass().on('error', $.sass.logError))
+        // .pipe($.autoprefixer())
         .pipe(gulp.dest('dist/css'))  //输出文件夹
         .pipe($.minifyCss())   //执行压缩
         .pipe(gulp.dest('dist/css'))  //输出文件夹
@@ -96,8 +96,8 @@ gulp.task('clean', function (cb) {
 // 监视源文件变化自动cd编译
 gulp.task('watch', function () {
     gulp.watch('src/**/*.html', ['html']);
-    gulp.watch('src/sass/**/*.scss', ['minifycss']);
-    gulp.watch('src/images/**/*', ['images']);
+    // gulp.watch('src/sass/**/*.scss', ['minifycss']);
+    gulp.watch('src/img/**/*', ['img']);
     // 使用 watchify，不再需要使用 gulp 监视 JS 变化
     // gulp.watch('app/js/**/*', ['jshint']);
     gulp.watch('src/js/**/*.js', ['webpack']);

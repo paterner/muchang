@@ -65,6 +65,59 @@ Zepto(function() {
     _getUserData() {
       //Init Dom
     }
+    _getAllNotes() {
+      let _this = this;
+      // request({
+      //   url: AjaxConfig.getAllNotes,
+      //   data: {'farmId': '8', 'wechatId': '13'},
+      //   successCb: function(res) {
+      //     console.log(res);
+      //   },
+      //   errorCb: function(xhr) {
+      //     console.log(xhr)
+      //   }
+      // });
+      let res = tempData.getAllNotes;
+      console.log(res)
+      if(200 == res.returnMessage) {
+        //To do
+      }
+    }
+
+    _getAllTags() {
+      let _this = this;
+      // request({
+      //   url: AjaxConfig.getAllTags,
+      //   data: {},
+      //   successCb: function(res) {
+      //     console.log(res);
+      //   },
+      //   errorCb: function(xhr) {
+      //     console.log(xhr)
+      //   }
+      // });
+      let res = tempData.getAllTags;
+      console.log(res)
+      if(200 == res.returnMessage) {
+        let LableTypeNameText = ''
+        res.labelInfo.map(item => {
+          LableTypeNameText += (`<li>${item.LableTypeName}</li>`)
+        })
+        _this.$ZeptoObj.biaoqianTypes.find('ul').html(LableTypeNameText)
+        _this.$ZeptoObj.biaoqianTypes.find('ul li').eq(0).addClass('on')
+        _this.$ZeptoObj.biaoqianTypes.find('ul li').on('click', function(){
+          $(this).addClass('on').siblings().removeClass('on')
+          const val = $(this).html()
+          let LableText = ''
+          const LableArr = res.labelInfo.filter(item => item.LableTypeName === val)
+          LableArr[0].Lable.map(item => {
+            LableText += (`<li>${item.lableName}</li>`)
+          })
+          _this.$ZeptoObj.biaoqianLabels.find('ul').html(LableText)
+        })
+      }
+    }
+
     //Initialize
     init() {
       //Initialize Zepto Object
@@ -78,9 +131,12 @@ Zepto(function() {
         biaoqianTextareaLabel: $('#biaoqian_textarea_label'),
         gonggaoTab: $('.gonggao-tab'),
         gonggaoContent: $('.gonggao-content'),
+        biaoqianTypes: $('.biaoqian_types'),
       }
       // this._url = 'http://water.bj.oupeng.com/';
       this._getUserType();
+      this._getAllNotes();
+      this._getAllTags();
       this._handleEvent();
     }
   }

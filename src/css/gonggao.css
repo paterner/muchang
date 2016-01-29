@@ -489,6 +489,11 @@ body.reply {
   margin-right: -.9375rem;
   font-size: .9375rem;
 }
+.reply.biaoqian button {
+  background-color: #f3f3f3;
+  color: #666;
+  margin-right: -.9375rem;
+}
 
 .biaoqian.biaoqian_note .note_content span{
   color: #999;

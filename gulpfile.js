@@ -98,6 +98,7 @@ gulp.task('watch', function () {
     gulp.watch('src/**/*.html', ['html']);
     // gulp.watch('src/sass/**/*.scss', ['minifycss']);
     gulp.watch('src/img/**/*', ['img']);
+    gulp.watch('src/css/**/*.css', ['minifycss']);
     // 使用 watchify，不再需要使用 gulp 监视 JS 变化
     // gulp.watch('app/js/**/*', ['jshint']);
     gulp.watch('src/js/**/*.js', ['webpack']);

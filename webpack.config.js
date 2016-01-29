@@ -21,7 +21,7 @@ module.exports = {
         ]
     },
     entry: {
-        index: './src/js/gonggao.js',
+        gonggao: './src/js/gonggao.js',
     },
     output: {
         path: 'dist/js',

@@ -1,7 +1,9 @@
 /**
- * Created by sunchi on 2015/1/12.
+ * Created by sunchi on 2015/1/28.
  */
  "use strict";
+import { request } from "./util/util";
+import { AjaxConfig, tempData } from "./util/config";
 
 //Use fastclick with mobile
 import FastClick from "fastclick";
@@ -37,6 +39,32 @@ Zepto(function() {
         _this.$ZeptoObj.biaoqianTextareaLabel.html(valArr.join('&nbsp'))
       })
     }
+    _getUserType() {
+      let _this = this;
+      // request({
+      //   url: AjaxConfig.publicInit,
+      //   data: {'farmId': '8', 'wechatId': '13'},
+      //   successCb: function(res) {
+      //     console.log(res);
+      //   },
+      //   errorCb: function(xhr) {
+      //     console.log(xhr)
+      //   }
+      // });
+      let res = tempData.publicInit;
+      console.log(res)
+      if(200 == res.returnMessage) {
+        '管理者' == res.map.roleName ? _this._getAdminData() : _this._getUserData();
+      }
+    }
+    _getAdminData() {
+      //Init Dom
+      this.$ZeptoObj.gonggaoTab.show();
+      this.$ZeptoObj.gonggaoContent.show();
+    }
+    _getUserData() {
+      //Init Dom
+    }
     //Initialize
     init() {
       //Initialize Zepto Object
@@ -47,27 +75,13 @@ Zepto(function() {
         addGonggaoClose: $('#add_gonggao_close'),
         gonggaoTabBox: $('.gonggao-tab-box'),
         biaoqianLabels: $('.biaoqian_labels'),
-        biaoqianTextareaLabel: $('#biaoqian_textarea_label')
+        biaoqianTextareaLabel: $('#biaoqian_textarea_label'),
+        gonggaoTab: $('.gonggao-tab'),
+        gonggaoContent: $('.gonggao-content'),
       }
       // this._url = 'http://water.bj.oupeng.com/';
+      this._getUserType();
       this._handleEvent();
-    }
-
-    ajax(type, url, data, success, error) {
-      $.ajax({
-        type: type,
-        url: url,
-        data: data,
-        dataType: 'jsonp',
-        jsonpCallback: 'jsonp',
-        timeout: 300,
-        success: function(data){
-          success(data)
-        },
-        error: function(xhr, type){
-          error()
-        }
-      })
     }
   }
 

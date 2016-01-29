@@ -26,5 +26,5 @@ module.exports = {
     output: {
         path: 'dist/js',
         filename: '[name].js' // 模版基于上边 entry 的 key
-    },plugins: [uglifyPlugin]
+    },plugins: []
 };

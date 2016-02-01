@@ -22,6 +22,7 @@ module.exports = {
     },
     entry: {
         gonggao: './src/js/gonggao.js',
+        note: './src/js/note.js',
     },
     output: {
         path: 'dist/js',

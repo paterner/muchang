@@ -45,14 +45,6 @@ Zepto(function() {
         let type = $(this).attr('id');
         $('#admin' + type).show().siblings('.gonggao-type').hide();
       })
-
-      _this.$ZeptoObj.biaoqianLabels.find('li').on('click', function(){
-        const val = $(this).html()
-        let textareaVal = _this.$ZeptoObj.biaoqianTextareaLabel.html()
-        let valArr = textareaVal ? textareaVal.split('\&nbsp') : []
-        valArr.push(val)
-        _this.$ZeptoObj.biaoqianTextareaLabel.html(valArr.join('&nbsp'))
-      })
     }
     _getUserType() {
       let _this = this;
@@ -154,57 +146,6 @@ Zepto(function() {
         this.$ZeptoObj.gonggaoNum.text(res.day_number).show();
       }
     }
-    _getAllNotes() {
-      let _this = this;
-      // request({
-      //   url: AjaxConfig.getAllNotes,
-      //   data: {'farmId': '8', 'wechatId': '13'},
-      //   successCb: function(res) {
-      //     console.log(res);
-      //   },
-      //   errorCb: function(xhr) {
-      //     console.log(xhr)
-      //   }
-      // });
-      let res = tempData.getAllNotes;
-      console.log(res)
-      if(200 == res.returnMessage) {
-        //To do
-      }
-    }
-    _getAllTags() {
-      let _this = this;
-      // request({
-      //   url: AjaxConfig.getAllTags,
-      //   data: {},
-      //   successCb: function(res) {
-      //     console.log(res);
-      //   },
-      //   errorCb: function(xhr) {
-      //     console.log(xhr)
-      //   }
-      // });
-      let res = tempData.getAllTags;
-      console.log(res)
-      if(200 == res.returnMessage) {
-        let LableTypeNameText = ''
-        res.labelInfo.map(item => {
-          LableTypeNameText += (`<li>${item.LableTypeName}</li>`)
-        })
-        _this.$ZeptoObj.biaoqianTypes.find('ul').html(LableTypeNameText)
-        _this.$ZeptoObj.biaoqianTypes.find('ul li').eq(0).addClass('on')
-        _this.$ZeptoObj.biaoqianTypes.find('ul li').on('click', function(){
-          $(this).addClass('on').siblings().removeClass('on')
-          const val = $(this).html()
-          let LableText = ''
-          const LableArr = res.labelInfo.filter(item => item.LableTypeName === val)
-          LableArr[0].Lable.map(item => {
-            LableText += (`<li>${item.lableName}</li>`)
-          })
-          _this.$ZeptoObj.biaoqianLabels.find('ul').html(LableText)
-        })
-      }
-    }
     //Highcharts
     _drawChart(data) {
       var chart = Highcharts.chart('gonggao-count-chart', {
@@ -261,8 +202,6 @@ Zepto(function() {
         addGonggaoClose: $('#add_gonggao_close'),
         addTongjiClose: $('#add_tongji_close'),
         gonggaoTabBox: $('.gonggao-tab-box'),
-        biaoqianLabels: $('.biaoqian_labels'),
-        biaoqianTextareaLabel: $('#biaoqian_textarea_label'),
         gonggaoTab: $('.gonggao-tab'),
         gonggaoContent: $('.gonggao-content'),
         biaoqianTypes: $('.biaoqian_types'),
@@ -276,9 +215,9 @@ Zepto(function() {
         gonggaoNum: $('#gonggaoNum'),
       }
       // this._url = 'http://water.bj.oupeng.com/';
+      // this._getAllNotes();
       this._getUserType();
-      this._getAllNotes();
-      this._getAllTags();
+      // this._getAllTags();
       this._handleEvent();
     }
   }

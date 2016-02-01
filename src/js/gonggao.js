@@ -211,9 +211,7 @@ Zepto(function() {
         gonggaoCountIntro: $('.gonggao-count-intro'),
       }
       // this._url = 'http://water.bj.oupeng.com/';
-      this._getAllNotes();
       this._getUserType();
-      this._getAllTags();
       this._handleEvent();
     }
   }

@@ -4,7 +4,6 @@
  "use strict";
 import { request } from "./util/util";
 import { AjaxConfig, tempData } from "./util/config";
-var Highcharts = require('highcharts');
 
 //Use fastclick with mobile
 import FastClick from "fastclick";
@@ -19,16 +18,20 @@ Zepto(function() {
     _handleEvent() {
       let _this = this;
 
+      _this.$ZeptoObj.backBtn.on('click', function() {
+        window.history.go(-1);
+      });
+
       _this.$ZeptoObj.biaoqianLabels.on('click', 'li', function(){
-        const val = $(this).html()
-        let textareaVal = _this.$ZeptoObj.biaoqianTextareaLabel.html()
-        let valArr = textareaVal ? textareaVal.split('\&nbsp') : []
-        valArr.push(val)
-        _this.$ZeptoObj.biaoqianTextareaLabel.html(valArr.join('&nbsp;'))
+        const val = $(this).html();
+        let textareaVal = _this.$ZeptoObj.biaoqianTextareaLabel.html();
+        let valArr = textareaVal ? textareaVal.split('\&nbsp') : [];
+        valArr.push(val);
+        _this.$ZeptoObj.biaoqianTextareaLabel.html(valArr.join('&nbsp'));
       })
 
-       _this.$ZeptoObj.saveNoteTag.on('click', function(){
-       	const tagsArr = _this.$ZeptoObj.biaoqianTextareaLabel.html().split('\&nbsp;')
+      _this.$ZeptoObj.saveNoteTag.on('click', function(){
+       	const tagsArr = _this.$ZeptoObj.biaoqianTextareaLabel.html().split('\&nbsp');
        	console.log(tagsArr)
         // request({
         //   url: AjaxConfig.saveNote,
@@ -40,9 +43,9 @@ Zepto(function() {
         //     console.log(xhr)
         //   }
         // });
-     })
-       _this.$ZeptoObj.saveNote.on('click', function(){
-       	const val = _this.$ZeptoObj.biaoqianTextarea.find('textarea').val()
+      })
+      _this.$ZeptoObj.saveNote.on('click', function(){
+       	const val = _this.$ZeptoObj.biaoqianTextarea.find('textarea').val();
         // request({
         //   url: AjaxConfig.saveNote,
         //   data: {'farmId': '8', 'wechatId': '13', val: val},
@@ -53,7 +56,7 @@ Zepto(function() {
         //     console.log(xhr)
         //   }
         // });
-     })
+      })
     }
     _getAllTags() {
       let _this = this;
@@ -70,21 +73,21 @@ Zepto(function() {
       let res = tempData.getAllTags;
       console.log(res)
       if(200 == res.returnMessage) {
-        let LableTypeNameText = ''
+        let LableTypeNameText = '';
         res.labelInfo.map(item => {
-          LableTypeNameText += (`<li>${item.LableTypeName}</li>`)
-        })
-        _this.$ZeptoObj.biaoqianTypes.find('ul').html(LableTypeNameText)
-        _this.$ZeptoObj.biaoqianTypes.find('ul li').eq(0).addClass('on')
+          LableTypeNameText += (`<li>${item.LableTypeName}</li>`);
+        });
+        _this.$ZeptoObj.biaoqianTypes.find('ul').html(LableTypeNameText);
+        _this.$ZeptoObj.biaoqianTypes.find('ul li').eq(0).addClass('on');
         _this.$ZeptoObj.biaoqianTypes.find('ul li').on('click', function(){
-          $(this).addClass('on').siblings().removeClass('on')
-          const val = $(this).html()
-          let LableText = ''
-          const LableArr = res.labelInfo.filter(item => item.LableTypeName === val)
+          $(this).addClass('on').siblings().removeClass('on');
+          const val = $(this).html();
+          let LableText = '';
+          const LableArr = res.labelInfo.filter(item => item.LableTypeName === val);
           LableArr[0].Lable.map(item => {
-            LableText += (`<li>${item.lableName}</li>`)
+            LableText += (`<li>${item.lableName}</li>`);
           })
-          _this.$ZeptoObj.biaoqianLabels.find('ul').html(LableText)
+          _this.$ZeptoObj.biaoqianLabels.find('ul').html(LableText);
         })
       }
     }
@@ -103,15 +106,15 @@ Zepto(function() {
       let res = tempData.getAllNotes;
       console.log(res)
       if(200 == res.returnMessage) {
-        const noteLen = res.list.length
-        _this.$ZeptoObj.noteNumber.html(`${noteLen}条笔记`)
-        let noteHtml = ''
+        const noteLen = res.list.length;
+        _this.$ZeptoObj.noteNumber.html(`${noteLen}条笔记`);
+        let noteHtml = '';
         res.list.map(item => 
           noteHtml +=`<div class="p15 note_content">
           <span>${(new Date(item.node_date)).toLocaleDateString() + " " + (new Date(item.node_date)).toLocaleTimeString()}</span>
           <div>${item.node_contect}</div>
           </div>`)
-        _this.$ZeptoObj.noteContentWrapper.html(noteHtml)
+        _this.$ZeptoObj.noteContentWrapper.html(noteHtml);
       }
     }
 
@@ -127,8 +130,8 @@ Zepto(function() {
         saveNoteTag: $('.save_note_tag'),
         saveNote: $('.save_note'),
         biaoqianTextarea : $('.biaoqian_textarea '),
+        backBtn: $('.back'),
       }
-      // this._url = 'http://water.bj.oupeng.com/';
       this._getAllNotes();
       this._getAllTags();
       this._handleEvent();

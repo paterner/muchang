@@ -661,3 +661,6 @@ body.reply {
   color: #444;
   font-size: .9375rem;
 }
+.reply #confirmBtn {
+  display: none;
+}

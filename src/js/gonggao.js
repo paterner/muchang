@@ -13,7 +13,6 @@ FastClick.attach(document.body);
 Zepto(function() {
   class Gonggao {
     constructor() {
-      this._url = '';
       this.$ZeptoObj = {};
     }
     _handleEvent() {
@@ -21,23 +20,49 @@ Zepto(function() {
 
       _this.$ZeptoObj.addGonggaoBtn.on('click', function(){
         _this.$ZeptoObj.addGonggaoWrapper.show(500);
-      })
+      });
 
       _this.$ZeptoObj.addGonggaoClose.on('click', function(){
         _this.$ZeptoObj.addGonggaoWrapper.hide(500);
-      })
+      });
 
       _this.$ZeptoObj.gonggaoCountIntro.on('click', function(){
         _this.$ZeptoObj.addTongjiWrapper.show(500);
-      })
+      });
 
       _this.$ZeptoObj.addTongjiClose.on('click', function(){
         _this.$ZeptoObj.addTongjiWrapper.hide(500);
-      })
+      });
 
       _this.$ZeptoObj.gonggaoNum.on('click', function(){
-        location.href = 'reply.html';
-      })
+        location.href = 'reply.html?form=top';
+      });
+
+      _this.$ZeptoObj.gonggaoNoteIcon.on('click', function() {
+        window.location.href = 'note.html'
+      });
+
+      //Save notice
+      _this.$ZeptoObj.sendBtn.on('click', function(){
+        // request({
+        //   url: AjaxConfig.saveNotice,
+        //   data: {},
+        //   successCb: function(res) {
+        //     console.log(res);
+        //   },
+        //   errorCb: function(xhr) {
+        //     console.log(xhr)
+        //   }
+        // });
+        _this.$ZeptoObj.addGonggaoWrapper.hide(500);
+      });
+
+      $('.reply-btn').on('click', function() {
+        if($(this).attr('data-num') > 0) {
+          let contect = encodeURI(encodeURI($(this).attr('data-text')));
+          window.location.href = 'reply_message.html?form=list&contect=' + contect;
+        }
+      });
 
       _this.$ZeptoObj.gonggaoTabBox.find('span').on('click', function(){
         if($(this).hasClass('current')) return;
@@ -66,8 +91,6 @@ Zepto(function() {
     }
     _getAdminData() {
       //Init Dom
-      this.$ZeptoObj.gonggaoTab.show();
-      this.$ZeptoObj.gonggaoContent.show();
       // request({
       //   url: AjaxConfig.personNoticeSelect,
       //   data: {},
@@ -78,41 +101,51 @@ Zepto(function() {
       //     console.log(xhr)
       //   }
       // });
-      let res = tempData.personNoticeSelect;
-      console.log(res, 'personNoticeSelect');
-      if(200 == res.returnMessage) {
-        this.$ZeptoObj.gonggaoAllTitle.text(res.day_number);
-        let labels = ''
-            , _html = '<ul>'
-            , _weekHtml = '<ul>';
-        res.returnList.forEach((item) => {
-          item.listLabelName.forEach((label) => {
-            labels += ('# ' + label.lableName + ' ');
-          });
-          _html += `<li><div class="clearfix gonggao-list-wrapper"><div class="list-left"><img src="${item.headPortrait}" alt="" class="head"> <span class="head_title">${item.jobName.slice(0, 1)}</span></div><div class="gonggao-message"><div class="clearfix"><h3 class="fl">${item.aliss}</h3><span class="f10 c_999 fr">${item.createTime}</span></div><p class="f11 gonggao-message-context">${item.contect}</p><p class="f10 c_999 mt32">${labels}</p></div></div><div class="gonggao-button clearfix"><button>${0 == item.returnNumber ? '没有回复' : item.returnNumber + '条未回复'}</button><button class=""><span class="pr">${item.unConfirmed_population}条未确认<i></i></span></button></div></li>`;
-          _weekHtml += `<li class="gonggao-note-item"><div class="note-list-date"><span class="note-list-day">25</span><span class="note-list-month">12月</span></div><div class="gonggao-list"><ul><li><div class="gonggao-list-tags">${labels}</div><div class="clearfix gonggao-list-wrapper"><div class="list-left"><img src="${item.headPortrait}" alt="" class="head"> <span class="head_title">${item.jobName.slice(0, 1)}</span></div><div class="gonggao-message"><div class="clearfix"><h3 class="fl">${item.aliss}</h3><span class="f10 c_999 fr">${item.createTime}</span></div><p class="f11 gonggao-message-context">${item.contect}</p><p class="f10 c_999 mt32">${labels}</p></div></div><div class="gonggao-button clearfix"><button>${0 == item.returnNumber ? '没有回复' : item.returnNumber + '条未回复'}</button><button><span class="pr">${item.unConfirmed_population}条未确认<i></i></span></button></div></li></ul></div></li>`
-          labels = '';
-        });
-        _html += '</ul>';
-        this.$ZeptoObj.gonggaoAllList.append(_html);
-        this.$ZeptoObj.gonggaoNoteList.append(_weekHtml);
 
-        //Get Week Data
-        this.$ZeptoObj.gonggaoWeekTitle.text(res.day_number);
-        // request({
-        //   url: AjaxConfig.weekStatis,
-        //   data: {},
-        //   successCb: function(res) {
-        //     console.log(res);
-        //   },
-        //   errorCb: function(xhr) {
-        //     console.log(xhr)
-        //   }
-        // });
-        let chartRes = tempData.weekStatis;
-        if(200 == chartRes.returnMessage) {
-          this._drawChart(chartRes);
+      let res = tempData.personNoticeSelect;
+      if(res.returnList.length > 0) {
+        this.$ZeptoObj.gonggaoTab.show();
+        this.$ZeptoObj.gonggaoContent.show();
+        console.log(res, 'personNoticeSelect');
+        if(200 == res.returnMessage) {
+          this.$ZeptoObj.gonggaoAllTitle.text(res.day_number);
+          let labels = ''
+              , _html = '<ul>'
+              , _weekHtml = '<ul>';
+          res.returnList.forEach((item) => {
+            item.listLabelName.forEach((label) => {
+              labels += ('# ' + label.lableName + ' ');
+            });
+            _html += `<li><div class="clearfix gonggao-list-wrapper"><div class="list-left"><img src="${item.headPortrait}" alt="" class="head"> <span class="head_title">${item.jobName.slice(0, 1)}</span></div><div class="gonggao-message"><div class="clearfix"><h3 class="fl">${item.aliss}</h3><span class="f10 c_999 fr">${item.createTime}</span></div><p class="f11 gonggao-message-context">${item.contect}</p><p class="f10 c_999 mt32">${labels}</p></div></div><div class="gonggao-button clearfix"><button class="reply-btn" data-num="${item.returnNumber}" data-text="${item.contect}">${0 == item.returnNumber ? '没有回复' : item.returnNumber + '条未回复'}</button><button class=""><span class="pr">${item.unConfirmed_population}条未确认<i></i></span></button></div></li>`;
+            _weekHtml += `<li class="gonggao-note-item"><div class="note-list-date"><span class="note-list-day">25</span><span class="note-list-month">12月</span></div><div class="gonggao-list"><ul><li><div class="gonggao-list-tags">${labels}</div><div class="clearfix gonggao-list-wrapper"><div class="list-left"><img src="${item.headPortrait}" alt="" class="head"> <span class="head_title">${item.jobName.slice(0, 1)}</span></div><div class="gonggao-message"><div class="clearfix"><h3 class="fl">${item.aliss}</h3><span class="f10 c_999 fr">${item.createTime}</span></div><p class="f11 gonggao-message-context">${item.contect}</p><p class="f10 c_999 mt32">${labels}</p></div></div><div class="gonggao-button clearfix"><button class="reply-btn" data-num="${item.returnNumber}" data-text="${item.contect}">${0 == item.returnNumber ? '没有回复' : item.returnNumber + '条未回复'}</button><button><span class="pr">${item.unConfirmed_population}条未确认<i></i></span></button></div></li></ul></div></li>`
+            labels = '';
+          });
+          _html += '</ul>';
+          this.$ZeptoObj.gonggaoAllList.append(_html);
+          this.$ZeptoObj.gonggaoNoteList.append(_weekHtml);
+
+          //Get Week Data
+          this.$ZeptoObj.gonggaoWeekTitle.text(res.day_number);
+          // request({
+          //   url: AjaxConfig.weekStatis,
+          //   data: {},
+          //   successCb: function(res) {
+          //     console.log(res);
+          //   },
+          //   errorCb: function(xhr) {
+          //     console.log(xhr)
+          //   }
+          // });
+          let chartRes = tempData.weekStatis;
+          if(200 == chartRes.returnMessage) {
+            this._drawChart(chartRes);
+          }
         }
+      }
+      else {
+        this.$ZeptoObj.gonggaoTab.hide();
+        this.$ZeptoObj.gonggaoContent.hide();
+        this.$ZeptoObj.emptyGonggao.show();
       }
     }
     _getUserData() {
@@ -132,18 +165,23 @@ Zepto(function() {
       let res = tempData.personNoticeSelect;
       console.log(res, 'personNoticeSelect');
       if(200 == res.returnMessage) {
-        let labels = ''
-            , _html = '<ul>';
-        res.returnList.forEach((item) => {
-          item.listLabelName.forEach((label) => {
-            labels += ('# ' + label.lableName + ' ');
+        if(res.returnList.length > 0) {
+          let labels = ''
+              , _html = '<ul>';
+          res.returnList.forEach((item) => {
+            item.listLabelName.forEach((label) => {
+              labels += ('# ' + label.lableName + ' ');
+            });
+            _html += `<li><div class="clearfix gonggao-list-wrapper"><div class="list-left"><img src="${item.headPortrait}" alt="" class="head"> <span class="head_title">${item.jobName.slice(0, 1)}</span></div><div class="gonggao-message"><div class="clearfix"><h3 class="fl">${item.aliss}</h3><span class="f10 c_999 fr">${item.createTime}</span></div><p class="f11 gonggao-message-context">${item.contect}</p><p class="f10 c_999 mt32">${labels}</p></div></div><div class="gonggao-button clearfix"><button class="reply-btn" data-num="${item.returnNumber}" data-text="${item.contect}">${0 == item.returnNumber ? '没有回复' : item.returnNumber + '条未回复'}</button><button class="confirm"><span class="pr">${item.unConfirmed_population}条未确认<i></i></span></button></div></li>`;
+            labels = '';
           });
-          _html += `<li><div class="clearfix gonggao-list-wrapper"><div class="list-left"><img src="${item.headPortrait}" alt="" class="head"> <span class="head_title">${item.jobName.slice(0, 1)}</span></div><div class="gonggao-message"><div class="clearfix"><h3 class="fl">${item.aliss}</h3><span class="f10 c_999 fr">${item.createTime}</span></div><p class="f11 gonggao-message-context">${item.contect}</p><p class="f10 c_999 mt32">${labels}</p></div></div><div class="gonggao-button clearfix"><button>${0 == item.returnNumber ? '没有回复' : item.returnNumber + '条未回复'}</button><button class="confirm"><span class="pr">${item.unConfirmed_population}条未确认<i></i></span></button></div></li>`;
-          labels = '';
-        });
-        _html += '</ul>';
-        this.$ZeptoObj.gonggaoAllList.append(_html);
-        this.$ZeptoObj.gonggaoNum.text(res.day_number).show();
+          _html += '</ul>';
+          this.$ZeptoObj.gonggaoAllList.append(_html);
+          this.$ZeptoObj.gonggaoNum.text(res.day_number).show();
+        }
+        else {
+          this.$ZeptoObj.emptyGonggao.show();
+        }
       }
     }
     //Highcharts
@@ -204,7 +242,6 @@ Zepto(function() {
         gonggaoTabBox: $('.gonggao-tab-box'),
         gonggaoTab: $('.gonggao-tab'),
         gonggaoContent: $('.gonggao-content'),
-        biaoqianTypes: $('.biaoqian_types'),
         gonggaoCountChart: $('#gonggao-count-chart'),
         gonggaoAllList: $('#gonggaoAllList'),
         adminAll: $('#adminAll'),
@@ -213,11 +250,11 @@ Zepto(function() {
         gonggaoNoteList: $('.gonggao-note-list'),
         gonggaoCountIntro: $('.gonggao-count-intro'),
         gonggaoNum: $('#gonggaoNum'),
+        sendBtn: $('#sendBtn'),
+        gonggaoNoteIcon: $('.gonggao-note-icon'),
+        emptyGonggao: $('#emptyGonggao'),
       }
-      // this._url = 'http://water.bj.oupeng.com/';
-      // this._getAllNotes();
       this._getUserType();
-      // this._getAllTags();
       this._handleEvent();
     }
   }

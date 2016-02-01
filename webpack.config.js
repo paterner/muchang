@@ -23,9 +23,10 @@ module.exports = {
     entry: {
         gonggao: './src/js/gonggao.js',
         note: './src/js/note.js',
+        reply: './src/js/reply.js',
     },
     output: {
         path: 'dist/js',
         filename: '[name].js' // 模版基于上边 entry 的 key
-    },plugins: []
+    },plugins: [uglifyPlugin]
 };

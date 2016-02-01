@@ -145,10 +145,11 @@ Zepto(function() {
                 },
                 stacking: 'normal',
                 lineColor: '#666666',
-                lineWidth: 1,
+                lineWidth: 0,
                 marker: {
-                    lineWidth: 1,
-                    lineColor: '#666666'
+                    fillColor: '#37be9d',
+                    lineWidth: 3,
+                    lineColor: '#6EECCE'
                 },
                 color: '#B0F7E5',
             }
@@ -157,7 +158,9 @@ Zepto(function() {
             name: '',
             data: [3, 2, 2, 1, 1]
           }],
-          
+          legend: {
+            enabled: false
+          },
             // ... more options - see http://api.highcharts.com/highcharts 
         });
     }

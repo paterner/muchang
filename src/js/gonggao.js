@@ -4,6 +4,8 @@
  "use strict";
 import { request } from "./util/util";
 import { AjaxConfig, tempData } from "./util/config";
+var hcFramework = require('highcharts/adapters/standalone-framework'),
+    Highcharts = require('highcharts')(hcFramework);
 
 //Use fastclick with mobile
 import FastClick from "fastclick";

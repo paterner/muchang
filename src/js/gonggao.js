@@ -4,8 +4,7 @@
  "use strict";
 import { request } from "./util/util";
 import { AjaxConfig, tempData } from "./util/config";
-var hcFramework = require('highcharts/adapters/standalone-framework'),
-    Highcharts = require('highcharts')(hcFramework);
+var Highcharts = require('highcharts');
 
 //Use fastclick with mobile
 import FastClick from "fastclick";
@@ -120,6 +119,49 @@ Zepto(function() {
       }
     }
 
+    _drawChart() {
+      var chart = Highcharts.chart('gonggao-count-chart', {
+          credits: {
+            enabled: false
+          },
+          chart: {
+            type: 'area',
+          },
+          title: {
+            text: ''
+          },
+          xAxis: {
+            categories: ['卧床', '修蹄', '剩料', '乳房炎', '异常牛' ]
+          },
+          yAxis: {
+            title: {
+                text: ''
+            }
+          },
+          plotOptions: {
+            area: {
+               dataLabels: {
+                    enabled: true
+                },
+                stacking: 'normal',
+                lineColor: '#666666',
+                lineWidth: 1,
+                marker: {
+                    lineWidth: 1,
+                    lineColor: '#666666'
+                },
+                color: '#B0F7E5',
+            }
+          },
+          series: [{
+            name: '',
+            data: [3, 2, 2, 1, 1]
+          }],
+          
+            // ... more options - see http://api.highcharts.com/highcharts 
+        });
+    }
+
     //Initialize
     init() {
       //Initialize Zepto Object
@@ -134,12 +176,14 @@ Zepto(function() {
         gonggaoTab: $('.gonggao-tab'),
         gonggaoContent: $('.gonggao-content'),
         biaoqianTypes: $('.biaoqian_types'),
+        gonggaoCountChart: $('#gonggao-count-chart'),
       }
       // this._url = 'http://water.bj.oupeng.com/';
       this._getUserType();
       this._getAllNotes();
       this._getAllTags();
       this._handleEvent();
+      this._drawChart();
     }
   }
 
